@@ -1,0 +1,38 @@
+//==== Textos
+// h1
+@mixin h1($color: #060F27){
+    border-left: 3px solid $color;
+    padding-left: 10px;
+    margin-bottom: 30px;
+
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: $color;
+}
+
+//Boton play para los videos
+@mixin botonPlay($circuloSize: 4.3rem, $circuloStroke: .2rem, $trianguloSize: 2.6rem){
+    .btnPlay{
+        position: absolute;
+        width: $circuloSize;
+        height: $circuloSize;
+        border-radius: 50%;
+        border: solid $circuloStroke white;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        .trianguloPlay{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: $trianguloSize;
+            fill: white;
+            stroke: white;
+        }
+    }
+}
+
+//Queries
+$maxWidth: 95.18em;
