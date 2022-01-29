@@ -11,22 +11,27 @@ const Home = ({ programas, transmisiones }) => {
           <link rel="icon" href="/favicon.ico" />
       </Head>
       
-      {/* Stream */}
-      <div className={inicioStyles.stream}>
-        {/* Header */}
-        <h1>TV en vivo</h1>
-        {/* Reproductor */}
-        <div className={inicioStyles.reproductor}>
-          <div className={inicioStyles.btnPlay}>
-              <svg xmlns="http://www.w3.org/2000/svg" className={inicioStyles.trianguloPlay} width="80" height="80" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#597e8d" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M7 4v16l13 -8z" />
-              </svg>
+      <section className={inicioStyles.stream_programas_container}>
+        <section className={inicioStyles.stream_programas}>
+          {/* Stream */}
+          <div className={inicioStyles.stream}>
+            {/* Header */}
+            <h1>TV en vivo</h1>
+            {/* Reproductor */}
+            <div className={inicioStyles.reproductor}>
+              <div className={inicioStyles.btnPlay}>
+                  <svg xmlns="http://www.w3.org/2000/svg" className={inicioStyles.trianguloPlay} width="80" height="80" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#597e8d" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M7 4v16l13 -8z" />
+                  </svg>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+          {/* Programas */}
+          <NuestrosProgramas programas={programas.data}/>
+        </section>
+      </section>
 
-      <NuestrosProgramas programas={programas.data}/>
       <UltimasTransmisiones transmisiones={transmisiones.data}/>
 
     </section>
@@ -53,11 +58,14 @@ export async function getStaticProps(){
   const programas = await resProgramas.json()
   const transmisiones = await resTransmisiones.json()
 
-  //Arreglar ruta de la imagen 
+  //Arreglar ruta de las imagenes 
   const regexSrc = /^\/uploads/g
 
   programas.data.map((programa)=>{
     programa.attributes.portada.data.attributes.url = programa.attributes.portada.data.attributes.url.replace(regexSrc, `${process.env.SERVER_IP}/uploads`)
+  })
+  transmisiones.data.map((transmision)=>{
+    transmision.attributes.portada.data.attributes.url = transmision.attributes.portada.data.attributes.url.replace(regexSrc, `${process.env.SERVER_IP}/uploads`)
   })
 
   return{

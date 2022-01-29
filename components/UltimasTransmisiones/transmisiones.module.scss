@@ -1,0 +1,124 @@
+@use "../../styles/variables/mixins" as *;
+@use "../../styles/variables/colores" as *;
+
+.ultimasTransmisiones{
+    max-width: $maxWidth;
+    margin: 0 auto;
+    padding: 0 25px;
+
+    //Header
+    header{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 30px;
+        h1{
+            @include h1(#000);
+            margin-bottom: 0;
+        }
+        a{
+            text-decoration: none;
+            color: $clr_azul;
+            flex-shrink: 0;
+            padding-left: 20px;
+        }
+    }
+
+    //Transmisiones
+    .transmisiones{
+
+        .transmision{
+            display: grid;
+            background-color: white;
+            text-decoration: none;
+            color: black;
+            grid-template-columns: 45% 50%;
+            padding: 8px;
+            border: 2px solid #BEBEBE;
+            border-radius: 5px;
+            margin-bottom: 30px;
+
+            @media only screen and (min-width: $celularNormalLandscape){
+                padding: 12px;
+            }
+
+            .portadaContainer{
+                position: relative;
+                width: 100%;
+                height: 0;
+                padding-top: 56.25%;
+                transition: .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                img{
+                    border-radius: 5px;
+                }
+                // FILTRO IMAGEN PORTADA
+                .filtroPortada{
+                    position: absolute;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.3);
+                    border-radius: 5px;
+                }
+                @include botonPlay(3rem, .2rem, 2rem);
+            }
+
+            .infoTransmision{
+                margin-left: 15px;
+                
+                .titulo{
+                    font-size: 1.1rem;
+                    transition: .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                    @media only screen and (max-width: $celularChico){
+                        font-size: .9rem;
+                    }
+                    @media only screen and (min-width: $celularGrande){
+                        font-size: 1.2rem;
+                    }
+                    @media only screen and (min-width: $celularChicoLandscape){
+                        font-size: 1.4rem;
+                        -webkit-line-clamp: 3;
+                    }
+                    @media only screen and (min-width: $tablet){
+                        font-size: 1.6rem;
+                    }
+                    @media only screen and (min-width: $celularGrandeLandscape){
+                        -webkit-line-clamp: 4;
+                    }
+                    @media only screen and (min-width: $escritorio){
+                        -webkit-line-clamp: 2;
+                    }
+                    @media only screen and (min-width: $escritorioMediano){
+                        -webkit-line-clamp: 3;
+                    }
+                    font-weight: 400;
+                    overflow: hidden;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                }
+                .fecha{
+                    font-size: .9rem;
+                    margin-top: .6rem;
+                    font-weight: 300;
+                    transition: .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                    @media only screen and (max-width: 19em){
+                        margin-top: .3rem;
+                    }
+                    @media only screen and (max-width: $celularChico){
+                        font-size: .8rem;
+                    }
+                    @media only screen and (min-width: $celularGrande){
+                        font-size: 1rem;
+                    }
+                    @media only screen and (min-width: $celularChicoLandscape){
+                        font-size: 1.1rem;
+                    }
+                    @media only screen and (min-width: $tablet){
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+        }
+    }
+}

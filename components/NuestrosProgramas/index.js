@@ -15,7 +15,7 @@ const NuestrosProgramas = ({ programas }) => {
             {/* Titulo */}
             <h1>Nuestros programas</h1>
             {/* Swiper con programas */}
-            <Swiper className={programasStyles.swiperProgramas} pagination loop={true} autoplay={{"delay": 1500, "disableOnInteraction":false}} grabCursor="true"  speed={400} slidesPerView={2} spaceBetween={30}>
+            <Swiper className={programasStyles.swiperProgramas} pagination loop={true} autoplay={{"delay": 1500, "disableOnInteraction":false}} grabCursor="true"  speed={400} slidesPerView={2} spaceBetween={30} breakpoints={{700:{slidesPerView: 3}}}>
                 {programas.map((programa) =>(
                     <SwiperSlide key={programa.id} className={programasStyles.swiperSlide}>
                         <Link href={`/programas/${programa.attributes.slug}`} >
@@ -29,6 +29,20 @@ const NuestrosProgramas = ({ programas }) => {
                     </SwiperSlide>
                 ))}
             </Swiper>
+            {/* Programas escritorio */}
+            <div className={programasStyles.programasEscritorio}>
+                {programas.slice(0,3).map((programa)=>(
+                    <Link href={`/programas/${programa.attributes.slug}`} key={programa.id}>
+                        <a>
+                            <div className={programasStyles.portadaPrograma}>
+                                <div className={programasStyles.portadaPlaceholder}></div>
+                                <Image src={programa.attributes.portada.data.attributes.url} alt="Portada de un programa de veoteve" layout={'fill'} objectFit={'cover'} quality="90" priority="true"/>
+                            </div>
+                            <span>{programa.attributes.nombre}</span>
+                        </a>
+                    </Link>
+                ))}
+            </div>
         </div>
     );
 }
