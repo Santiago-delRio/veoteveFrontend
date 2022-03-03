@@ -1,0 +1,168 @@
+@use "../../styles/variables/mixins" as *;
+@use "../../styles/variables/colores" as *;
+
+.noticia{
+    max-width: $maxWidth;
+    padding: $padding_top_navbar 25px 0;
+    margin: 0 auto;
+
+    //Noticia
+    .contenidoNoticia{
+        margin-bottom: 80px;
+
+        @media only screen and (min-width: $tablet){
+            padding: 40px;
+            border: 2px solid #BEBEBE;
+            border-radius: 5px;
+        }
+
+        // Etiqueta y fecha
+        .etiquetaFecha{
+            width: fit-content;
+            font-weight: 300;
+            font-size: 1rem;
+            @media only screen and (min-width: $celularChico){
+                font-size: 1.1rem;
+            }
+            @media only screen and (min-width: $celularNormalLandscape){
+                font-size: 1.2rem;
+            }
+            @media only screen and (min-width: $tablet){
+                font-size: 1.3rem;
+            }
+            
+            .etiqueta{
+                background: $backgroundEtiquetas;
+                background: $gradientEtiquetas;
+                padding: 3px 10px;
+                border-radius: 5px;
+            }
+
+            .fecha{
+                border-left: 1px solid black;
+                padding: 3px 0;
+                padding-left: 15px;
+                margin-left: 15px;
+            }
+        }
+
+        //Titulo
+        .titulo{
+            margin: 30px 0 25px;
+            font-size: 1.9rem;
+            font-weight: 600;
+            @media only screen and (min-width: $tablet){
+                font-size: 2rem;
+            }
+            @media only screen and (min-width: $escritorioMediano){
+                font-size: 2.1rem;
+            }
+        }
+        // Portada
+        .portada{
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-top: 56.25%;
+            background-color: #ccc;
+            box-shadow: 0 8px 34px -5px rgba(93, 93, 93, 0.23);
+            border-radius: 5px;
+            margin-bottom: 20px;
+
+            img{
+                border-radius: 5px;
+            }
+        }
+
+        //Contenido
+        .contenido{
+
+            //imagenes
+            .imagen{
+                position: relative;
+                width: 100%;
+                height: 0;
+                padding-top: 56.25%;
+                background-color: #ccc;
+                box-shadow: 0 8px 34px -5px rgba(93, 93, 93, 0.23);
+                border-radius: 5px;
+                margin: 15px 0;
+                img{
+                    border-radius: 5px;
+                }
+            }
+
+            p,em{
+                padding: 5px 0;
+                font-size: 1rem;
+                @media only screen and (min-width: $tablet){
+                    font-size: 1.1rem;
+                }
+                @media only screen and (min-width: $escritorioMediano){
+                    font-size: 1.2rem;
+                }
+            }
+            h1{
+                padding: 5px 0;
+                font-size: 1.7rem;
+                font-weight: 500;
+                @media only screen and (min-width: $tablet){
+                    font-size: 1.8rem;
+                }
+            }
+            h2{
+                padding: 5px 0;
+                font-size: 1.4rem;
+                font-weight: 500;
+                @media only screen and (min-width: $tablet){
+                    font-size: 1.5rem;
+                }
+            }
+            h3{
+                padding: 5px 0;
+                font-size: 1.2rem;
+                font-weight: 500;
+                @media only screen and (min-width: $tablet){
+                    font-size: 1.3rem;
+                }
+            }
+            blockquote{
+                border-left: 4px solid #ccc;
+                padding-left: 1rem;
+                font-size: 1rem;
+                margin: 20px 0;
+                @media only screen and (min-width: $tablet){
+                    font-size: 1.2rem;
+                }
+                @media only screen and (min-width: $escritorioMediano){
+                    font-size: 1.3rem;
+                }
+            }
+            ol,ul{
+                padding-left: 2.5rem;
+                li{
+                    font-size: 1rem;
+                    @media only screen and (min-width: $tablet){
+                        font-size: 1.1rem;
+                    }
+                    @media only screen and (min-width: $escritorioMediano){
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+            a{
+                font-weight: 500;
+                text-decoration: none;
+                color: $clr_azul;
+                border-bottom: 1px solid $clr_azul;
+                font-size: 1rem;
+                @media only screen and (min-width: $tablet){
+                    font-size: 1.1rem;
+                }
+                @media only screen and (min-width: $escritorioMediano){
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+}

@@ -1,2 +1,9 @@
-$gradient_azul: linear-gradient(145deg, rgba(27,34,73,1) 0%, rgba(32,60,136,1) 100%);
+//==== Colores
+$backgroundEtiquetas: #00CCCC; //Etiquetas noticias
 $clr_azul: #305FDB;
+$clr_negro_azul: #060F27;
+
+//==== Gradients
+$gradient_azul: linear-gradient(145deg, rgba(27,34,73,1) 0%, rgba(32,60,136,1) 100%);
+//Etiquetas noticias
+$gradientEtiquetas: linear-gradient(145deg, rgba(0, 204, 204, 0.35) 0%, rgba(48, 179, 219, 0.35) 100%); 

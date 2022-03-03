@@ -1,0 +1,97 @@
+@use "../../styles/variables/mixins" as *;
+@use "../../styles/variables/colores" as *;
+
+.programas{
+    max-width: $maxWidth;
+    padding: $padding_top_navbar 25px 0;
+    margin: 0 auto;
+
+    //Grid programas
+    .gridProgramas{
+        @media only screen and (min-width: $celularNormalLandscape){
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            grid-gap: 40px;
+        }
+        @media only screen and (min-width: $escritorioMediano){
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+        //Programa
+        .programa{
+            display: block;
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-top: 56.25%;
+            text-decoration: none;
+            margin-bottom: 40px;
+
+            &:last-of-type{
+                margin-bottom: 0;
+            }
+
+            @media only screen and (min-width: $celularNormalLandscape){
+                margin-bottom: 0;
+            }
+
+            //Nombre
+            .nombre{
+                position: absolute;
+                bottom: 0;
+                z-index: 2;
+                display: flex;
+                align-items: flex-end;
+                width: 100%;
+                padding: 20px;
+                
+                h3{
+                    color: white;
+                    font-weight: 400;
+                    font-size: 1.5rem;
+                    padding-right: 10px;
+
+                    overflow: hidden;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                }
+                @include botonPlay(2.3rem, .2rem, 1.4rem);
+                //Icono play
+                .btnPlay{
+                    position: relative;
+                    top: 0;
+                    left: 0;
+                    transform: translate(0);
+
+                    min-width: 2.3rem;
+                    margin-left: auto;
+                }
+            }
+
+            //Imagen
+            img{
+                border-radius: 5px;
+            }
+
+            .filtro{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                bottom: 0;
+                border-radius: 5px;
+                background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 49.8%, #000000 100%);
+                z-index: 1;
+            }
+        }
+    }
+
+    //boton cargar mas resultados
+    button{
+        margin-top: 30px;
+    }
+
+    section:last-of-type{
+        margin-top: 80px;
+    }
+}

@@ -1,0 +1,179 @@
+@use "../../styles/variables/colores" as *;
+@use "../../styles/variables/mixins" as *;
+
+
+.footer{
+    background: $gradient_azul;
+    
+    .innerFooter{
+        max-width: $maxWidth;
+        margin: 0 auto;
+        padding: 40px 25px;
+
+        @media only screen and (min-width: $celularGrandeLandscape){
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            align-items: center;
+            grid-gap: 40px;
+            gap: 40px;
+        }
+
+        //Logo
+        .logoContainer{
+            width: 100%;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(224, 255, 253, 0.065);
+            .logo{
+                width: 50px;
+                margin: 0 auto;
+            }
+
+            @media only screen and (min-width: $celularGrandeLandscape){
+                padding-bottom: 0;
+                border: none;
+                order: 1;
+                .logo{
+                    margin: 0;
+                }
+            }
+        }
+        
+        //Redes
+        .redes{
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+            $widthIconos: 2.5rem;
+            border-bottom: 1px solid rgba(224, 255, 253, 0.065);
+
+            @media only screen and (min-width: $celularGrandeLandscape){
+                padding: 0;
+                border: none;
+                order: 3;
+                justify-content: flex-end;
+            }
+
+            li{
+                width: fit-content;
+                height: fit-content;
+                
+                svg{
+                    display: block;
+                    fill: white;
+                    width: $widthIconos;
+                    height: auto;
+                }
+
+                &:nth-child(2){
+                    margin: 0 20px;
+                    svg{
+                        width: calc(#{$widthIconos} + 1rem);
+                        height: $widthIconos;
+                    }
+                }
+
+                transition: .2s;
+                
+                &:hover{
+                    transition: .2s;
+                    transform: scale(1.09);
+                }
+            }
+        }
+
+        //Links
+        .links{
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(224, 255, 253, 0.065);
+
+            @media only screen and (min-width: $celularGrandeLandscape){
+                padding: 0;
+                border: none;
+                order: 2;
+            }
+
+            li{
+                position: relative;
+                font-size: .9rem;
+                @media only screen and (min-width: $celularChico){
+                    font-size: 1rem;
+                }
+                @media only screen and (min-width: $celularGrande){
+                    font-size: 1.1rem;
+                }
+                @media only screen and (min-width: $celularGrandeLandscape){
+                    font-size: 1.2rem;
+                }
+
+                &:not(:last-of-type){
+                    margin-right: 15px;
+                    @media only screen and (min-width: $celularGrandeLandscape){
+                        margin-right: 40px;
+                    }
+                }
+                a{
+                    text-decoration: none;
+                    color: white;
+                }
+
+                &::after{
+                    content: '';
+                    position: absolute;
+                    background-color: white;
+                    left: 0;
+                    bottom: -8px;
+                    width: 100%;
+                    height: 3px;
+                    transform: scaleX(0);
+                    transition: transform 0.2s;
+                }
+                &:hover{
+                    &::after{
+                        transform: scaleX(1);
+                    }
+                }
+            }
+        }
+
+        //Contacto
+        .contacto{
+            display: flex;
+            flex-direction: column;
+            color: white;
+            font-size: .9rem;
+            text-align: center;
+            padding-top: 20px;
+            
+            @media only screen and (min-width: $celularChico){
+                font-size: 1rem;
+            }
+            @media only screen and (min-width: $celularGrande){
+                font-size: 1.1rem;
+            }
+            @media only screen and (min-width: $celularGrandeLandscape){
+                padding: 0;
+                order: 4;
+                grid-column-start: 3;
+                text-align: right;
+                font-size: 1.2rem;
+            }
+            
+
+            :nth-child(2){
+                padding: 15px 0;
+            }
+            a{
+                text-decoration: none;
+                color: white;
+            }
+            .direccionMail::after{
+                content: attr(data-name) "@" attr(data-domain) "." attr(data-tld); 
+            }
+        }
+    }
+}

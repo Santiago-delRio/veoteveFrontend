@@ -1,0 +1,64 @@
+@use "../styles/variables/colores" as *;
+@use "../styles/variables/mixins" as *;
+
+.error404 {
+  max-width: $maxWidth;
+  padding: $padding_top_navbar 25px 80px;
+  margin: 0 auto;
+
+  @media only screen and (min-width: $tablet) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 40px;
+    gap: 40px;
+  }
+
+  .info {
+    margin: auto 0;
+    //Titulo
+    h1 {
+      font-size: 4rem;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+    //Descripcion
+    p {
+      font-size: 1.4rem;
+      font-weight: 400;
+      margin-bottom: 30px;
+    }
+    //Boton
+    a {
+      display: block;
+      background-color: transparent;
+      width: fit-content;
+
+      padding: 10px 15px;
+      border: solid 2px $clr_azul;
+      border-radius: 5px;
+
+      color: $clr_azul;
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: 500;
+
+      transition: 0.3s;
+      cursor: pointer;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        background-color: $clr_azul;
+        color: white;
+        transition: 0.2s;
+        transform: translateX(5px);
+      }
+    }
+  }
+
+  //Imagen
+  .imagen {
+    width: 100%;
+    height: auto;
+  }
+}

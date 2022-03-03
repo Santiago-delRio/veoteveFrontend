@@ -1,14 +1,68 @@
+@use "../../styles/variables/colores" as *;
+
 //==== Textos
 // h1
-@mixin h1($color: #060F27){
+@mixin h1($color: $clr_negro_azul){
     border-left: 3px solid $color;
     padding-left: 10px;
     margin-bottom: 30px;
 
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     font-weight: 500;
     color: $color;
+    @media only screen and (min-width: $celularChico){
+        font-size: 1.45rem;
+    }
+    @media only screen and (min-width: $celularMediano){
+        font-size: 1.6rem;
+    }
+    @media only screen and (min-width: $celularGrande){
+        font-size: 1.8rem;
+    }
 }
+
+//Header
+@mixin header{
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 30px;
+    h1{
+        @include h1();
+        margin-bottom: 0;
+    }
+    a{
+        display: flex;
+        align-items: center;
+        
+        text-decoration: none;
+        color: $clr_azul;
+        flex-shrink: 0;
+        padding-left: 20px;
+        transition: .2s ease-in-out;
+
+        @media only screen and (min-width: $celularMediano){
+            font-size: 1.25rem;
+        }
+
+        svg{
+            margin-left: 5px;
+            fill: lighten($clr_azul, 10%);
+            width: 1.5rem;
+            height: auto;
+            opacity: 0;
+            transition: .2s ease-in-out;
+            transform: translate(-25px , 1px);
+        }
+        &:hover,
+        &:focus{
+            svg{
+                opacity: 1;
+                transform: translate(0 , 1px);
+            }
+        }
+    }
+}
+//========
 
 //Boton play para los videos
 @mixin botonPlay($circuloSize: 4.3rem, $circuloStroke: .2rem, $trianguloSize: 2.6rem){
@@ -33,6 +87,9 @@
         }
     }
 }
+
+//padding top + alto de navbar, para paginas
+$padding_top_navbar: 150px;
 
 //Queries
 $maxWidth: 95.18em;

@@ -4,18 +4,22 @@ import Link from "next/link"
 import logo from "../../assets/imagenes/logo.jpg"
 import { useEffect, useRef, useState } from "react"
 import { useRouter } from 'next/router'
-import { route } from "next/dist/server/router"
 
 const Navbar = () => {
+
+    const router = useRouter();
+
+    //==== Refs
+    const botonMenu = useRef(); //Boton del menu
 
     //==== States
     const [menuAbierto, setMenuAbierto] = useState(false)
     const [navbarScroll, setNavbarScroll] = useState() // Cambiar el color del navbar despues de scrollear
 
-    //==== Refs
-    const botonMenu = useRef(); //Boton del menu
-
-    const router = useRouter();
+    //Cambiar el color del navbar despues de scrollear
+    const cambiarNavbar  = () =>{
+        (window.scrollY > 70 ? setNavbarScroll(true) : setNavbarScroll(false));   
+    }
 
     useEffect(() => {
         //Cerrar el menu si estaba abierto al cambiar de ruta 
@@ -28,13 +32,16 @@ const Navbar = () => {
         if(router.asPath != "/"){
             setNavbarScroll(true)
         }
+        //Dejar el navbar transparente si se va de otra pestaña a inicio
+        if(router.asPath == "/"){
+            setNavbarScroll(false)
 
-        //Listener para cambiar el color del navbar despues de scrollear
-        window.addEventListener("scroll", ()=>{
-            if (router.asPath == "/") {
-                (window.scrollY > 70 ? setNavbarScroll(true) : setNavbarScroll(false));   
-            }
-        })
+            //Listener para cambiar el color del navbar despues de scrollear
+            window.addEventListener("scroll", cambiarNavbar)
+        }
+
+        return () => window.removeEventListener("scroll", cambiarNavbar)
+        
 
     }, [router.asPath]);
 

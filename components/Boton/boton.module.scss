@@ -1,0 +1,26 @@
+@use "../../styles/variables/mixins" as *;
+@use "../../styles/variables/colores" as *;
+
+.boton{
+    background-color: transparent;
+    padding: 2px 6px;
+    border: solid 2px $clr_azul;
+    border-radius: 5px;
+    color: $clr_azul;
+    text-align: center;
+    font-size: .9rem;
+
+    transition: .3s;
+    cursor: pointer;
+
+    @media only screen and (min-width: $celularChico){
+        font-size: 1rem;
+    }
+
+    &:hover,
+    &:focus{
+        background-color: $clr_azul;
+        color: white;
+        transition: .2s;
+    }
+}

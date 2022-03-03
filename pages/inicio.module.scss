@@ -2,10 +2,9 @@
 @use "../styles/variables/colores" as *;
 
 .inicio{
-    
     .stream_programas_container{
         background: $gradient_azul;
-        padding: 150px 0 80px;
+        padding: $padding_top_navbar 0 80px;
         margin-bottom: 80px;
 
         .stream_programas{
@@ -36,8 +35,24 @@
                     cursor: pointer;
                     
                     @include botonPlay;
+                    //Video
+                    .video{
+                        background-color: #202020;
+                        top: 0;
+                        position: absolute;
+                        width: 100%!important;
+                        height: 100%!important;
+                        border-radius: 5px;
+                        iframe, video{
+                            border-radius: 5px;
+                        }
+                    }
                 }
             }
         }
+    }
+
+    section:not(:nth-of-type(1)){
+        padding: 0 25px;
     }
 }

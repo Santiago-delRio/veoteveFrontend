@@ -1,0 +1,25 @@
+@use "../../styles/variables/mixins" as *;
+@use "../../styles/variables/colores" as *;
+
+.noticias{
+    max-width: $maxWidth;
+    padding: $padding_top_navbar 25px 80px;
+    margin: 0 auto;
+
+    .gridNoticias{
+        $columnas: 5; //Limite de columnas
+
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(max(230px, 100%/$columnas), 1fr));
+        grid-auto-rows: 1fr;
+        width: 100%;
+        
+        gap: 40px;
+        grid-gap: 40px;
+    }
+
+    //boton cargar mas resultados
+    button{
+        margin-top: 30px;
+    }
+}

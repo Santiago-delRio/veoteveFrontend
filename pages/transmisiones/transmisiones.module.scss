@@ -1,22 +1,19 @@
 @use "../../styles/variables/mixins" as *;
 @use "../../styles/variables/colores" as *;
 
-.ultimasTransmisiones{
+.transmisiones{
     max-width: $maxWidth;
-    margin: 0 auto 80px;
-
-    //Header
-    header{
-        @include header;
-    }
+    padding: $padding_top_navbar 25px 80px;
+    margin: 0 auto;
 
     //Transmisiones
-    .transmisiones{
+    .gridTransmisiones{
+        margin-bottom: 30px;
         @media only screen and (min-width: $escritorio){
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
             grid-gap: 3rem;
         }
-    }
+    } 
 }

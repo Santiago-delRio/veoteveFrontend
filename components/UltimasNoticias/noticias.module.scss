@@ -1,0 +1,26 @@
+@use "../../styles/variables/mixins" as *;
+@use "../../styles/variables/colores" as *;
+
+.ultimasNoticias{
+    max-width: $maxWidth;
+    margin: 0 auto 80px;
+
+    header{
+        @include header;
+    }
+
+    .noticias{
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(230px, 1fr));
+        grid-auto-rows: 1fr;
+        width: 100%;
+        gap: 40px;
+        grid-gap: 40px;
+
+        @media only screen and (min-width: 51.25em) and (max-width: 68.0625em){
+            :nth-child(4){
+                display: none;
+            }
+        }
+    }
+}
