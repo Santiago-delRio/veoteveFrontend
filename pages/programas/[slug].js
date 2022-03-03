@@ -4,7 +4,7 @@ import programaStyles from "./programa.module.scss"
 import TransmisionCard from '../../components/TransmisionCard'
 import NuestrosProgramas from '../../components/NuestrosProgramas';
 import Boton from '../../components/Boton'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 
 const Programa = ({programa, transmisiones, programas}) => {
@@ -28,10 +28,6 @@ const Programa = ({programa, transmisiones, programas}) => {
             setCantTransmisionesMostradas((prevTransmisionesMostradas) => prevTransmisionesMostradas + transmisionesRestantes)
         }
     }
-    
-    useEffect(()=>{
-        console.log(programas.data)
-    },[])
 
     return (
         <main className={programaStyles.programa}>

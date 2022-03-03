@@ -1,6 +1,4 @@
 import Head from 'next/head'
-import Link from "next/link"
-import Image from 'next/image'
 import noticiasStyles from "./noticias.module.scss"
 import Heading from '../../components/HeadingPaginas'
 import Boton from '../../components/Boton'
