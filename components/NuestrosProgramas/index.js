@@ -23,7 +23,7 @@ const NuestrosProgramas = ({ programas, titulo="Nuestros programas" }) => {
                         <a tabIndex={-1}>
                             <div className={programasStyles.portadaPrograma}>
                                 <div className={programasStyles.portadaPlaceholder}></div>
-                                <Image src={programa.portada.data.attributes.url} alt="Portada de un programa de veoteve" layout={'fill'} objectFit={'cover'} quality="90" priority="true"/>
+                                <Image src={programa.portada.data.attributes.url} alt="Portada de un programa de veoteve" layout={'fill'} objectFit={'cover'} quality="85" priority="true" sizes="50vw"/>
                             </div>
                         </a>
                     </Link> 

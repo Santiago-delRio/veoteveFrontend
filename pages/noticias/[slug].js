@@ -101,7 +101,7 @@ export async function getStaticProps({params}){
     
         //=== Arreglar ruta de las imagenes 
         const regexSrc = /^\/uploads/g //Imagen de la portada
-        const regexSrcContenidoNoticia = /\/uploads/g //Imagenes que haya dentro de la noticia
+        const regexSrcContenidoNoticia = /\(\/uploads/g //Imagenes que haya dentro de la noticia
         //Cambiar formato de la fecha
         const regexFormato = /(202\d)-(\d\d)-(\d\d)/
         

@@ -8,7 +8,7 @@ const Transmision = ({transmision}) => {
            <Link href={`/transmisiones/${transmision.attributes.slug}`}>
                 <a className={transmisionStyles.transmision}>
                     <div className={transmisionStyles.portadaContainer}>
-                        <Image src={transmision.attributes.portada.data.attributes.url} alt="Portada de una transmision pasada de veoteve" layout={'fill'} objectFit={'cover'} quality="90" />
+                        <Image src={transmision.attributes.portada.data.attributes.url} alt="Portada de una transmision pasada de veoteve" layout={'fill'} objectFit={'cover'} quality="75" sizes="50vw"/>
                         <div className={transmisionStyles.filtroPortada}></div>
                         <div className={transmisionStyles.btnPlay}>
                             <svg xmlns="http://www.w3.org/2000/svg" className={transmisionStyles.trianguloPlay} width="80" height="80" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#597e8d" fill="none" strokeLinecap="round" strokeLinejoin="round">

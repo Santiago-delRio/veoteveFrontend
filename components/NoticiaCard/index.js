@@ -11,7 +11,7 @@ const Noticia = ({ noticia }) => {
                     {/* Portada */}
                     <div className={noticiaStyles.portadaContainer}>
                         <div className={noticiaStyles.portadaPlaceholder}></div>
-                        <Image src={noticia.portada.data.attributes.url} alt="Portada noticia" layout={'fill'} objectFit={'cover'} quality="80"/>
+                        <Image src={noticia.portada.data.attributes.url} alt="Portada noticia" layout={'fill'} objectFit={'cover'} quality="80" sizes="50vw"/>
                     </div>
                     {/* TEXTO NOTICIA */}
                     <div className={noticiaStyles.infoNoticia}>

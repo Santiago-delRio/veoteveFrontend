@@ -23,7 +23,7 @@ const NuestrosProgramas = ({ programas }) => {
                         <a>
                             <div className={programasStyles.portadaPrograma}>
                                 <div className={programasStyles.portadaPlaceholder}></div>
-                                <Image src={programa.portada.data.attributes.url} alt="Portada de un programa de veoteve" layout={'fill'} objectFit={'cover'} quality="90" priority="true"/>
+                                <Image src={programa.portada.data.attributes.url} alt="Portada de un programa de veoteve" layout={'fill'} objectFit={'cover'} quality="85" sizes="45vw"/>
                             </div>
                         </a>
                     </Link> 
@@ -56,7 +56,7 @@ const NuestrosProgramas = ({ programas }) => {
                         <a>
                             <div className={programasStyles.portadaPrograma}>
                                 <div className={programasStyles.portadaPlaceholder}></div>
-                                <Image src={programa.attributes.portada.data.attributes.url} alt="Portada de un programa de veoteve" layout={'fill'} objectFit={'cover'} quality="90" priority="true"/>
+                                <Image src={programa.attributes.portada.data.attributes.url} alt="Portada de un programa de veoteve" layout={'fill'} objectFit={'cover'} quality="75" priority="true" sizes="50vw"/>
                             </div>
                             <span>{programa.attributes.nombre}</span>
                         </a>
