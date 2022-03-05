@@ -109,7 +109,7 @@ export async function getStaticProps({params}){
         noticia.portada.data.attributes.url = noticia.portada.data.attributes.url.replace(regexSrc, `${process.env.SERVER_IP}/uploads`)
         noticia.fecha = noticia.fecha.replace(regexFormato, '$3/$2/$1')
         // Imagenes dentro de la noticia
-        noticia.contenido = noticia.contenido.replace(regexSrcContenidoNoticia, `${process.env.SERVER_IP}/uploads`)
+        noticia.contenido = noticia.contenido.replace(regexSrcContenidoNoticia, `(${process.env.SERVER_IP}/uploads`)
         // Imagenes otras noticias
         noticias.data.map((noticia)=>{
             noticia.attributes.portada.data.attributes.url = noticia.attributes.portada.data.attributes.url.replace(regexSrc, `${process.env.SERVER_IP}/uploads`)
