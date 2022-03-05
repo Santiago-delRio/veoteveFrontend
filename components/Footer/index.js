@@ -64,7 +64,7 @@ const Footer = () => {
                     <span>+54 (011) 1234-4567</span>
                     <a href="mailto:mail@veoteove.com.ar" className={footerStyles.direccionMail}
                         data-name="mail"
-                        data-domain="veoteve"
+                        data-domain="falso"
                         data-tld="com.ar">
                     </a>
                 </div>
