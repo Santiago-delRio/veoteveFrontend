@@ -67,7 +67,7 @@
             background-color: #ccc;
             box-shadow: 0 8px 34px -5px rgba(93, 93, 93, 0.23);
             border-radius: 5px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
 
             img{
                 border-radius: 5px;
@@ -93,7 +93,7 @@
             }
 
             p,em{
-                padding: 5px 0;
+                padding: 10px 0;
                 font-size: 1rem;
                 @media only screen and (min-width: $tablet){
                     font-size: 1.1rem;
@@ -103,7 +103,7 @@
                 }
             }
             h1{
-                padding: 5px 0;
+                padding: 10px 0;
                 font-size: 1.7rem;
                 font-weight: 500;
                 @media only screen and (min-width: $tablet){
@@ -111,7 +111,7 @@
                 }
             }
             h2{
-                padding: 5px 0;
+                padding: 10px 0;
                 font-size: 1.4rem;
                 font-weight: 500;
                 @media only screen and (min-width: $tablet){
@@ -119,7 +119,7 @@
                 }
             }
             h3{
-                padding: 5px 0;
+                padding: 10px 0;
                 font-size: 1.2rem;
                 font-weight: 500;
                 @media only screen and (min-width: $tablet){
@@ -130,7 +130,7 @@
                 border-left: 4px solid #ccc;
                 padding-left: 1rem;
                 font-size: 1rem;
-                margin: 20px 0;
+                margin: 25px 0;
                 @media only screen and (min-width: $tablet){
                     font-size: 1.2rem;
                 }

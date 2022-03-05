@@ -54,7 +54,7 @@ export default Noticias;
 
 export async function getStaticProps(){
 
-    const resNoticias = await fetch(`${process.env.SERVER_IP}/api/noticias?populate=portada`, {
+    const resNoticias = await fetch(`${process.env.SERVER_IP}/api/noticias?populate=portada&sort[0]=fecha:desc`, {
         headers: {
         'Authorization': process.env.API_AUTH
         },

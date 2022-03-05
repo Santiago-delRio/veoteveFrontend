@@ -24,9 +24,19 @@ const Noticia = ({ noticia, noticias }) => {
                     <Image src={noticia.portada.data.attributes.url} alt="Portada de una noticia de veoteve" layout={'fill'} objectFit={'cover'} quality="90" />
                 </div>
                 <section aria-label="Contenido de la noticia" className={noticiaStyles.contenido}>
-                    <ReactMarkdown components={{
-                        img: ({node, ...props}) => <div className={noticiaStyles.imagen}> <Image src={props.src} alt="Imagen de la noticia" layout={'fill'} objectFit={'cover'} quality="90" /> </div>
-                    }}>
+                    <ReactMarkdown 
+                    linkTarget={'_blank'}
+                    components={{
+                        img: ({node, ...props}) => <div className={noticiaStyles.imagen}> <Image src={props.src} alt="Imagen de la noticia" layout={'fill'} objectFit={'cover'} quality="90" /> </div>,
+                        a: ({ node, children, ...props}) => {
+                            const linkProps = props;
+                            if (props.target === '_blank') {
+                                linkProps['rel'] = 'noopener noreferrer';
+                            }
+                            return <a {...linkProps}>{children}</a>
+                        }
+                    }}
+                    >
                         {noticia.contenido}
                     </ReactMarkdown>
                 </section>
@@ -90,13 +100,16 @@ export async function getStaticProps({params}){
         const noticias = await resNoticias.json()
     
         //=== Arreglar ruta de las imagenes 
-        const regexSrc = /^\/uploads/g
+        const regexSrc = /^\/uploads/g //Imagen de la portada
+        const regexSrcContenidoNoticia = /\/uploads/g //Imagenes que haya dentro de la noticia
         //Cambiar formato de la fecha
         const regexFormato = /(202\d)-(\d\d)-(\d\d)/
         
         // Imagen y fecha noticia
         noticia.portada.data.attributes.url = noticia.portada.data.attributes.url.replace(regexSrc, `${process.env.SERVER_IP}/uploads`)
         noticia.fecha = noticia.fecha.replace(regexFormato, '$3/$2/$1')
+        // Imagenes dentro de la noticia
+        noticia.contenido = noticia.contenido.replace(regexSrcContenidoNoticia, `${process.env.SERVER_IP}/uploads`)
         // Imagenes otras noticias
         noticias.data.map((noticia)=>{
             noticia.attributes.portada.data.attributes.url = noticia.attributes.portada.data.attributes.url.replace(regexSrc, `${process.env.SERVER_IP}/uploads`)
