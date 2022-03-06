@@ -99,21 +99,11 @@ export async function getStaticProps({params}){
         //Otras noticias
         const noticias = await resNoticias.json()
     
-        //=== Arreglar ruta de las imagenes 
-        const regexSrc = /^\/uploads/g //Imagen de la portada
-        const regexSrcContenidoNoticia = /\(\/uploads/g //Imagenes que haya dentro de la noticia
         //Cambiar formato de la fecha
         const regexFormato = /(202\d)-(\d\d)-(\d\d)/
         
-        // Imagen y fecha noticia
-        noticia.portada.data.attributes.url = noticia.portada.data.attributes.url.replace(regexSrc, `${process.env.SERVER_IP}/uploads`)
+        // Fecha noticia
         noticia.fecha = noticia.fecha.replace(regexFormato, '$3/$2/$1')
-        // Imagenes dentro de la noticia
-        noticia.contenido = noticia.contenido.replace(regexSrcContenidoNoticia, `(${process.env.SERVER_IP}/uploads`)
-        // Imagenes otras noticias
-        noticias.data.map((noticia)=>{
-            noticia.attributes.portada.data.attributes.url = noticia.attributes.portada.data.attributes.url.replace(regexSrc, `${process.env.SERVER_IP}/uploads`)
-        })
 
         return{
             props: { noticia, noticias },

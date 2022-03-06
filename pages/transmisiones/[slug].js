@@ -179,22 +179,14 @@ export async function getStaticProps({params}){
         //Programas
         const programas = await resProgramas.json()
     
-        //=== Arreglar ruta de las imagenes 
-        const regexSrc = /^\/uploads/g
         //Cambiar formato de la fecha
         const regexFormato = /(202\d)-(\d\d)-(\d\d)/
         
-        // Imagen y fecha transmision
-        transmision.portada.data.attributes.url = transmision.portada.data.attributes.url.replace(regexSrc, `${process.env.SERVER_IP}/uploads`)
+        // Fecha transmision
         transmision.fecha = transmision.fecha.replace(regexFormato, '$3/$2/$1')
-        // Imagenes programas
-        programas.data.map((programa)=>{
-            programa.attributes.portada.data.attributes.url = programa.attributes.portada.data.attributes.url.replace(regexSrc, `${process.env.SERVER_IP}/uploads`)
-          })
-        // Imagenes y fecha transmisiones
+        // Fecha transmisiones
         transmisiones.data.map((transmision)=>{
-        transmision.attributes.portada.data.attributes.url = transmision.attributes.portada.data.attributes.url.replace(regexSrc, `${process.env.SERVER_IP}/uploads`)
-        transmision.attributes.fecha = transmision.attributes.fecha.replace(regexFormato, '$3/$2/$1')
+            transmision.attributes.fecha = transmision.attributes.fecha.replace(regexFormato, '$3/$2/$1')
         })
 
         return{

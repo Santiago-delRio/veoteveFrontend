@@ -69,16 +69,6 @@ export async function getStaticProps(){
     const noticias = await resNoticias.json()
     const programas = await resProgramas.json()
   
-    //Arreglar ruta de las imagenes 
-    const regexSrc = /^\/uploads/g
-  
-    programas.data.map((programa)=>{
-      programa.attributes.portada.data.attributes.url = programa.attributes.portada.data.attributes.url.replace(regexSrc, `${process.env.SERVER_IP}/uploads`)
-    })
-    noticias.data.map((noticia)=>{
-        noticia.attributes.portada.data.attributes.url = noticia.attributes.portada.data.attributes.url.replace(regexSrc, `${process.env.SERVER_IP}/uploads`)
-      })
-  
     return{
         props: { programas, noticias },
         revalidate: 120,

@@ -30,7 +30,7 @@ const Horarios = ({ transmisiones, horarios }) => {
             {/* Dias */}
             <div className={horariosStyles.dias}>
                 <h1 className={horariosStyles.titulo}>Horarios</h1>
-                <Swiper className={horariosStyles.swiperDias} freeMode={true, {sticky:true}} slidesPerView="auto" spaceBetween={30} noSwiping={esEscritorio ? true : false} noSwipingClass={'swiper-slide'} >
+                <Swiper className={horariosStyles.swiperDias} freeMode={{enabled:true, sticky:true}} slidesPerView="auto" spaceBetween={30} noSwiping={esEscritorio ? true : false} noSwipingClass={'swiper-slide'} >
                     {/* Dia lunes */}
                     <SwiperSlide className={horariosStyles.swiperSlide}>
                         <h2 className={(diaSeleccionado == "Lunes" ? horariosStyles.diaActivo : "")} onClick={()=>{setDiaSeleccionado("Lunes")}} tabIndex={0} onKeyPress={(event)=>{(event.key == "Enter") ? event.target.click() : ""}}>Lunes</h2>
@@ -111,13 +111,6 @@ export async function getStaticProps(){
   
     const transmisiones = await resTransmisiones.json()
     const horarios = await resHorarios.json()
-  
-    //Arreglar ruta de las imagenes 
-    const regexSrc = /^\/uploads/g
-  
-    transmisiones.data.map((transmision)=>{
-      transmision.attributes.portada.data.attributes.url = transmision.attributes.portada.data.attributes.url.replace(regexSrc, `${process.env.SERVER_IP}/uploads`)
-    })
   
     return{
         props: { transmisiones, horarios },
