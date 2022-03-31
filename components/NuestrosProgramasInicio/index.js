@@ -56,7 +56,7 @@ const NuestrosProgramas = ({ programas }) => {
                         <a>
                             <div className={programasStyles.portadaPrograma}>
                                 <div className={programasStyles.portadaPlaceholder}></div>
-                                <Image src={programa.attributes.portada.data.attributes.url} alt="Portada de un programa de veoteve" layout={'fill'} objectFit={'cover'} quality="75" priority="true" sizes="50vw"/>
+                                <Image src={programa.attributes.portada.data.attributes.url} alt="Portada de un programa de veoteve" layout={'fill'} objectFit={'cover'} quality="75" priority="true" sizes="25vw"/>
                             </div>
                             <span>{programa.attributes.nombre}</span>
                         </a>
