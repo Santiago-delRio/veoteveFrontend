@@ -1,7 +1,7 @@
 export default function handler(req, res) {
   const { id } = req.body;
 
-  fetch(`http://localhost:1337/api/noticias/contar/${id}`, {
+  fetch(`${process.env.SERVER_IP}/api/noticias/contar/${id}`, {
     headers: {
       Authorization: process.env.AUTH_CONTAR_VISITA,
     },
